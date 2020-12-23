@@ -24,7 +24,7 @@ if(isset($_GET['p'])) {
     <?php
     include_once '../includes/html/menu.php';
 
-    include 'pages/'.$page.'.php';
+    include '../includes/pages/'.$page.'.php';
 
     ?>
 

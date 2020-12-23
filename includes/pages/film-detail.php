@@ -39,7 +39,7 @@ $film = array(
 
 <main>
     <div class="main-film-info">
-        <img src="../img/LOTR.jpg" alt="Lotr">
+        <img src="../../public/img/LOTR.jpg" alt="Lotr">
         <div class="description">
             <div class="title">
                 <div class="icons">
@@ -64,7 +64,7 @@ $film = array(
 
             foreach ($film['regisseurs'] as $regisseur) {
                 echo '<div class="item">
-                          <img src="../img/Peter.jpg" alt="Peter">
+                          <img src="../../public/img/Peter.jpg" alt="Peter">
                           <p>' . $regisseur . '</p>
                       </div>';
             }
@@ -77,7 +77,7 @@ $film = array(
 
             foreach ($film['actors'] as $actor) {
                 echo '<div class="item">
-                          <img src="../img/Ian.jpg" alt="Peter">
+                          <img src="../../public/img/Ian.jpg" alt="Peter">
                           <p>' . $actor . '</p>
                           </div>';
             }
