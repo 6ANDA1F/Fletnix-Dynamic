@@ -2,93 +2,8 @@
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/../includes/php/movie/data.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/../includes/php/movie/html.php';
-
-
-$films[] = createFilm(
-    'test1',
-    90,
-    'sdsdksdqdwdwd',
-    'Cameron',
-    array(
-        'actor1',
-        'actor2'
-
-    ),
-    'hbfwefwfguwdqwdwud wdqwd wydw w wudwuydgwdwdwugwwud',
-    'n9xhJrPXop4',
-    'LOTR.jpg'
-);
-
-$films[] = createFilm(
-    'test1',
-    90,
-    'sdsdksdqdwdwd',
-    array(
-        array(
-            'name' => 'peter',
-            'img' => '/img/peter.jpg'
-        ),
-    ),
-    array(
-        array(
-            'name' => 'ian',
-            'img' => '/img/ian.jpg'
-        ),
-        array(
-            'name' => 'ian',
-            'img' => '/img/ian.jpg'
-        ),
-
-    ),
-    'hbfwefwfguwdqwdwud wdqwd wydw w wudwuydgwdwdwugwwud',
-    'n9xhJrPXop4',
-    'LOTR.jpg'
-);
-
-$films[] = createFilm(
-    'test1',
-    90,
-    'sdsdksdqdwdwd',
-    'Cameron',
-    array(
-        'actor1',
-        'actor2'
-
-    ),
-    'hbfwefwfguwdqwdwud wdqwd wydw w wudwuydgwdwdwugwwud',
-    'n9xhJrPXop4',
-    'LOTR.jpg'
-);
-
-$films[] = createFilm(
-    'test1',
-    90,
-    'sdsdksdqdwdwd',
-    'Cameron',
-    array(
-        'actor1',
-        'actor2'
-
-    ),
-    'hbfwefwfguwdqwdwud wdqwd wydw w wudwuydgwdwdwugwwud',
-    'n9xhJrPXop4',
-    'LOTR.jpg'
-);
-
-$films[] = createFilm(
-    'test1',
-    90,
-    'sdsdksdqdwdwd',
-    'Cameron',
-    array(
-        'actor1',
-        'actor2'
-
-    ),
-    'hbfwefwfguwdqwdwud wdqwd wydw w wudwuydgwdwdwugwwud',
-    'n9xhJrPXop4',
-    'LOTR.jpg'
-);
+$imgPath = getImgDir();
+$movies = getAll(30);
 ?>
 
 <header>
@@ -123,8 +38,8 @@ $films[] = createFilm(
 
     <div class="tile-grid">
         <?php
-        foreach ($films as $film) {
-            filmToHtml($film);
+        foreach ($movies as $movie) {
+            filmToHtml($movie);
         }
         ?>
     </div>

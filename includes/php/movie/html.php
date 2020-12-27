@@ -1,33 +1,20 @@
 <?php
+
 // Film overzicht
-function filmToHtml($filmArray)
+function filmToHtml($filmObj)
 {
+    $imgPath = getImgDir();
     echo <<<HTML
 
        <div class="item">
-            <a href="#">
-                <h3>{$filmArray['title']}</h3>
-                <img src="{$filmArray['imageUrl']}" alt="{$filmArray['title']}">
+            <a href="index.php?p=film-detail&film={$filmObj->movie_id}">
+                <h3>{$filmObj->title}</h3>
+                <img src="{$imgPath}{$filmObj->cover_image}" alt="{$filmObj->title}">
             </a>
        </div>
 
 HTML;
 
-}
-
-function createFilm($title, $filmDuration, $description, $regisseurs, $actors, $extraInfo, $trailerYtId, $banner) {
-    $imgFolder = '/img/';
-
-    return array(
-        'title' => $title,
-        'film-duration' => minutesToHour($filmDuration),
-        'description' => $description,
-        'regisseurs' => $regisseurs,
-        'actors' => $actors,
-        'extra-info' => $extraInfo,
-        'trailerTtId' => $trailerYtId,
-        'banner' => $imgFolder . $banner
-    );
 }
 //
 
