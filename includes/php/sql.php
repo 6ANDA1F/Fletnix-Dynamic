@@ -1,8 +1,8 @@
 <?php
 
-//TODO: make a function for this
-$imgPath = $_SERVER['DOCUMENT_ROOT'] . '/img/';
-
+function getImgDir() {
+    return $_SERVER['DOCUMENT_ROOT'] . '/img/';
+}
 
 //TODO: add .env file to inject the sql config with
 
@@ -20,6 +20,17 @@ $pw = 'Cjetses007'; // <--- add your own
 $dbh = new PDO("sqlsrv:Server=$hostname;Database=$dbname;ConnectionPooling=0", $username, $pw);
 // Tijdens het ontwikkelen is het handig om meteen ook de foutmeldingen vanuit de database te kunnen lezen.
 $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+function getDatabaseHandler() {
+    global $dbh;
+    return $dbh;
+}
+
+function showNotFoundCode() {
+    echo <<<NOTFOUND
+    <h2>404 Not Found</h2>
+NOTFOUND;
+}
 
 
 ////Test to see if the connection works
