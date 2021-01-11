@@ -1,94 +1,77 @@
 <?php
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../includes/php/movie/data.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../includes/php/movie/html.php';
+$imgPath = getImgDir();
 
-$title = "The Lord of the Rings: The Fellowship of the Ring (2001)";
-$filmDuration = 150;
-$description = "The Lord of the Rings: The Fellowship of the Ring is het eerste deel van Peter Jacksons filmtrilogie The Lord of the Rings, gebaseerd op J.R.R. Tolkiens gelijknamige bestseller.
-                De film was in 2002 genomineerd voor dertien Oscars en won er uiteindelijk vier.";
-$regisseurs = array(
-    'name' => "Peter Jackson",
-    'img' => $GLOBALS['imgPath'] . "peter.jpg"
-);
-$actors = array(
-    "Elijah wood",
-    "Sean Astin",
-    "Orlando Bloom",
-    "Billy Boyd",
-    "Sean Bean",
-    "Cate Blanchett",
-    "Ian McKellen"
-);
+$film = null;
+if (isset($_GET['film'])) {
+    $film = getSingleById($_GET['film']);
 
-$extraInfo = "De film ging op 19 december 2001 in première. Na The Fellowship of the Ring volgden The Two Towers (2002)
-              en The Return of the King (2003).
-              Deze films waren gelijktijdig met The Fellowship of the Ring opgenomen.";
+//    echo '<pre style="color: white !important;">';
+//    var_dump($film);
+//    echo '</pre>';
+//    exit();
 
-$trailerYtId = "V75dMMIW2B4";
-
-$film = array(
-    'title' => $title,
-    'film-duration' => minutesToHour($filmDuration),
-    'description' => $description,
-    'regisseurs' => $regisseurs,
-    'actors' => $actors,
-    'extra-info' => $extraInfo,
-    '$trailerTtId' => $trailerYtId,
-    'banner' => 'peter.jpg'
-);
+    $film->duration = minutesToHour($film->duration);
+} else {
+    showNotFoundCode();
+}
 
 ?>
-
 <main>
-    <div class="main-film-info">
-        <img src="../../public/img/LOTR.jpg" alt="Lotr">
-        <div class="description">
-            <div class="title">
-                <div class="icons">
-                    <span class="fas fa-2x fa-bug"></span>
-                    <span class="fas fa-2x fa-bug"></span>
-                    <span class="fas fa-2x fa-bug"></span>
+    <?php if (isset($_GET['film'])) { ?>
+        <div class="main-film-info">
+            <img src="<?= $imgPath . $film->cover_image ?>>" alt="<?= $film->title ?>">
+            <div class="description">
+                <div class="title">
+                    <div class="icons">
+                        <span class="fas fa-2x fa-bug"></span>
+                        <span class="fas fa-2x fa-bug"></span>
+                        <span class="fas fa-2x fa-bug"></span>
+                    </div>
+                    <h1><?= $film->title ?></h1>
+                    <div class="flex-sub-group">
+                        <h4>Duur: <?= $film->duration ?></h4>
+                        <a href="#" class="button"><span class="fas fa-play"></span>Play</a>
+                    </div>
                 </div>
-                <h1><?= $film['title'] ?></h1>
-                <div class="flex-sub-group">
-                    <h4>Duur: <?= $film['film-duration'] ?></h4>
-                    <a href="#" class="button"><span class="fas fa-play"></span>Play</a>
-                </div>
+                <p><?= $film->description ?></p>
             </div>
-            <p><?= $film['description'] ?></p>
         </div>
-    </div>
 
-    <div class="film-detail-info">
-        <h2>Regisseurs</h2>
-        <div class="tile-grid tile-small">
-            <?php
+        <div class="film-detail-info">
+            <h2>Regisseurs</h2>
+            <div class="tile-grid tile-small">
+                <?php
 
-            foreach ($film['regisseurs'] as $regisseur) {
-                echo '<div class="item">
-                          <img src="../../public/img/Peter.jpg" alt="Peter">
-                          <p>' . $regisseur . '</p>
+                foreach ($film->directors as $director) {
+                    echo '<div class="item">
+                          <img src="img/Peter.jpg" alt="Peter">
+                          <p>' . $director->firstname . ' ' . $director->lastname . '</p>
                       </div>';
-            }
-            ?>
-        </div>
+                }
+                ?>
+            </div>
 
-        <h2>Cast</h2>
-        <div class="tile-grid tile-small">
-            <?php
+            <h2>Cast</h2>
+            <div class="tile-grid tile-small">
+                <?php
 
-            foreach ($film['actors'] as $actor) {
-                echo '<div class="item">
-                          <img src="../../public/img/Ian.jpg" alt="Peter">
-                          <p>' . $actor . '</p>
+                foreach ($film->cast as $actor) {
+                    echo '<div class="item">
+                          <img src="img/Ian.jpg" alt="Peter">
+                          <p>' . $actor->firstname . ' ' . $actor->lastname . '</p>
                           </div>';
-            }
-            ?>
+                }
+                ?>
+            </div>
+
+            <h2>Extra Information</h2>
+            <p><?= $film->publication_year ?></p>
+
+            <iframe width="1118" height="629" src="https://www.youtube.com/embed/V75dMMIW2B4"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
         </div>
-
-        <h2>Extra Information</h2>
-        <p><?= $film['extra-info'] ?></p>
-
-        <iframe width="1118" height="629" src="https://www.youtube.com/embed/V75dMMIW2B4"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
-    </div>
+    <?php } ?>
 </main>
