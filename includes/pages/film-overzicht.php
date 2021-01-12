@@ -12,28 +12,25 @@ $movies = getAll(30);
 
 <main>
 
-    <form class="filter-form" action="#">
+    <form class="filter-form" method="get" action="">
+        <input type="hidden" name="p" value="film-overzicht">
+
         <label for="zoeken">Zoek: </label>
-        <input type="search" id="zoeken" name="zoeken" placeholder="Film, Regisseur">
+        <input type="search" id="zoeken" name="search" placeholder="Film, Regisseur">
 
         <label for="year">Zoek: </label>
-        <input name="year" type="number" id="year" placeholder="Jaartal" min="1940" max="2020">
-
-        <label for="filter">Filter op: </label>
-        <select name="filter" id="filter">
-            <option value="Naam">Naam</option>
-            <option value="Naam">Jaar</option>
-            <option value="Naam">Datum</option>
-            <option value="Naam">Populariteit</option>
-        </select>
+        <input name="year" type="number" id="year" placeholder="Jaartal" min="1900" max="2021">
 
         <label for="genre">Filter op: </label>
         <select name="genre" id="genre">
-            <option value="Naam">Horror</option>
-            <option value="Naam">Comedy</option>
-            <option value="Naam">Actie</option>
-            <option value="Naam">Romantiek</option>
+            <option value="">Geen</option>
+            <option value="Horror">Horror</option>
+            <option value="Comedy">Comedy</option>
+            <option value="Action">Actie</option>
+            <option value="Romantic">Romantiek</option>
         </select>
+
+        <input type="submit" value="Zoek">
     </form>
 
     <div class="tile-grid">

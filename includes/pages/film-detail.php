@@ -7,11 +7,6 @@ $film = null;
 if (isset($_GET['film'])) {
     $film = getSingleById($_GET['film']);
 
-//    echo '<pre style="color: white !important;">';
-//    var_dump($film);
-//    echo '</pre>';
-//    exit();
-
     $film->duration = minutesToHour($film->duration);
 } else {
     showNotFoundCode();
