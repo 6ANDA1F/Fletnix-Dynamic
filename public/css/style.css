@@ -270,6 +270,7 @@ label {
 
 .main-film-info .description {
     padding: 0 3rem;
+    width: 100%;
 }
 
 .main-film-info .description .title {
