@@ -87,8 +87,8 @@ function getSingleById($id)
 {
     $sql = 'SELECT M.movie_id, M.title, M.duration, M.description, M.publication_year, M.cover_image, PDIR.person_id AS dirId, PDIR.firstname AS dirFirst, PDIR.lastname AS dirLast, PCAST.person_id AS castId, PCAST.firstname AS castFirst, PCAST.lastname AS castLast
             FROM ' . TABLE_MOVIES . ' 
-            LEFT JOIN ' . TABLE_MOVIE_DIRECTOR . ' ON MD.movie_id = M.movie_id JOIN ' . TABLE_PERSON . 'DIR ON MD.person_id = PDIR.person_id
-            LEFT JOIN ' . TABLE_MOVIE_CAST . ' ON MC.movie_id = M.movie_id JOIN ' . TABLE_PERSON . 'CAST ON MC.person_id = PCAST.person_id
+            LEFT JOIN ' . TABLE_MOVIE_DIRECTOR . ' ON MD.movie_id = M.movie_id LEFT JOIN ' . TABLE_PERSON . 'DIR ON MD.person_id = PDIR.person_id
+            LEFT JOIN ' . TABLE_MOVIE_CAST . ' ON MC.movie_id = M.movie_id LEFT JOIN ' . TABLE_PERSON . 'CAST ON MC.person_id = PCAST.person_id
             WHERE M.movie_id = :id';
 
     $handler = getDatabaseHandler();
@@ -119,14 +119,14 @@ function getSingleById($id)
             $movie->description = $object->description;
             $movie->publication_year = $object->publication_year;
             $movie->cover_image = $object->cover_image;
-            $movie->directors = array($director);
-            $movie->cast = array($cast_person);
+            $movie->directors = (!is_null($director->id) ? array($director) : array());
+            $movie->cast = (!is_null($cast_person->id) ? array($cast_person) : array());
         } else {
-            if (!in_array_of_objects($movie->directors, 'id', $object->dirId)) {
+            if (!in_array_of_objects($movie->directors, 'id', $object->dirId) && !is_null($object->dirId)) {
                 $movie->directors[] = $director;
             }
 
-            if (!in_array_of_objects($movie->cast, 'id', $object->castId)) {
+            if (!in_array_of_objects($movie->cast, 'id', $object->castId) && !is_null($object->castId)) {
                 $movie->cast[] = $cast_person;
             }
         }
