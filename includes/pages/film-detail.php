@@ -16,7 +16,7 @@ if (isset($_GET['film'])) {
 <main>
     <?php if (isset($_GET['film'])) { ?>
         <div class="main-film-info">
-            <img src="<?= $imgPath . $film->cover_image ?>>" alt="<?= $film->title ?>">
+            <img src="<?= $imgPath . $film->cover_image ?>" alt="<?= $film->title ?>">
             <div class="description">
                 <div class="title">
                     <div class="icons">
@@ -38,12 +38,13 @@ if (isset($_GET['film'])) {
             <h2>Regisseurs</h2>
             <div class="tile-grid tile-small">
                 <?php
-
-                foreach ($film->directors as $director) {
-                    echo '<div class="item">
+                if (isset($film->directors)) {
+                    foreach ($film->directors as $director) {
+                        echo '<div class="item">
                           <img src="img/Peter.jpg" alt="Peter">
                           <p>' . $director->firstname . ' ' . $director->lastname . '</p>
                       </div>';
+                    }
                 }
                 ?>
             </div>
@@ -51,12 +52,13 @@ if (isset($_GET['film'])) {
             <h2>Cast</h2>
             <div class="tile-grid tile-small">
                 <?php
-
-                foreach ($film->cast as $actor) {
-                    echo '<div class="item">
+                if (isset($film->cast)) {
+                    foreach ($film->cast as $actor) {
+                        echo '<div class="item">
                           <img src="img/Ian.jpg" alt="Peter">
                           <p>' . $actor->firstname . ' ' . $actor->lastname . '</p>
                           </div>';
+                    }
                 }
                 ?>
             </div>

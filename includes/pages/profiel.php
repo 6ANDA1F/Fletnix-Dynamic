@@ -1,9 +1,14 @@
+<?php
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../includes/php/sql.php';
+$imgPath = getImgDir();
+?>
+
 <header>
     <h1>Accountgegevens wijzigen</h1>
 </header>
 <main>
     <div class="profiel-info">
-        <img src="../../public/img/avatar.png" class="profiel-logo" alt="avatar">
+        <img src="<?= $imgPath ?>avatar.png" class="profiel-logo" alt="avatar">
         <h2>
             Profielnaam wijzigen
         </h2>
@@ -15,7 +20,7 @@
         <h2>
             Email wijzigen
         </h2>
-        <img src="../../public/img/email.png" class="email-logo" alt="Email">
+        <img src="<?= $imgPath ?>email.png" class="email-logo" alt="Email">
         <div class="button-wrapper">
             <a class="button" href="email.php">
                 <strong>Edit email</strong>

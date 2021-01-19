@@ -1,7 +1,7 @@
 <?php
 
 function getImgDir() {
-    return $_SERVER['DOCUMENT_ROOT'] . '/img/';
+    return '/img/';
 }
 
 //TODO: add .env file to inject the sql config with

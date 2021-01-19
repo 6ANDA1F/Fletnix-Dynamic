@@ -1,3 +1,8 @@
+<?php
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../includes/php/sql.php';
+$imgPath = getImgDir();
+?>
+
 <header>
     <h1>You choose</h1>
 </header>
@@ -6,23 +11,23 @@
     <div class="horizontal-cards">
         <div class="item">
             <h3>Subscription 1</h3>
-            <img src="../../public/img/Basic2.png" alt="Dollar">
+            <img src="<?= $imgPath ?>Basic2.png" alt="Dollar">
             <a class="button" href="#subscription1">More</a>
         </div>
         <div class="item">
             <h3>Subscription 2</h3>
-            <img src="../../public/img/standard.png" alt="Dollar">
+            <img src="<?= $imgPath ?>standard.png" alt="Dollar">
             <a class="button" href="#subscription2">More</a>
         </div>
         <div class="item">
             <h3>Subscription 3</h3>
-            <img src="../../public/img/Premium2.png" alt="Dollar">
+            <img src="<?= $imgPath ?>Premium2.png" alt="Dollar">
             <a class="button" href="#subscription3">More</a>
         </div>
     </div>
 
     <div id="subscription1" class="media-and-text media-reversed">
-        <img src="../../public/img/Basic2.png" alt="Bayb Yoda">
+        <img src="<?= $imgPath ?>Basic2.png" alt="Bayb Yoda">
         <div class="text">
             <h3>Basic</h3>
             <p>Het Basic-streamingplan kost $ 8,99 per maand en heeft de meest beperkte functies.
@@ -32,7 +37,7 @@
     </div>
 
     <div id="subscription2" class="media-and-text">
-        <img src="../../public/img/standard.png" alt="Bayb Yoda">
+        <img src="<?= $imgPath ?>standard.png" alt="Bayb Yoda">
         <div class="text">
             <h3>Standaard</h3>
             <p>Het standaard streamingplan kost $ 12,99 per maand en stelt je in staat om op twee schermen tegelijk in high definition (HD) te kijken.</p>
@@ -40,7 +45,7 @@
     </div>
 
     <div id="subscription3" class="media-and-text media-reversed">
-        <img src="../../public/img/Premium2.png" alt="Bayb Yoda">
+        <img src="<?= $imgPath ?>Premium2.png" alt="Bayb Yoda">
         <div class="text">
             <h3>Premium</h3>
             <p>Het Premium-streamingplan kost $ 15,99 per maand.
