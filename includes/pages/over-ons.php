@@ -9,7 +9,7 @@ $imgPath = getImgDir();
 
 <main>
     <div class="overons">
-        <img src="<?= $imgPath ?>team.jpg" class="teampic" alt="team">
+        <img src="<?= $imgPath ?>team.jpg" class="teampic img-border" alt="team">
         <div class="description">
             <div class="title">
                 <h1>Dit zijn wij</h1>

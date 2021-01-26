@@ -67,6 +67,10 @@ h2 {
     margin: 20px auto;
 }
 
+h2 > span {
+    color: red;
+}
+
 h3 {
     letter-spacing: 4px;
 }
@@ -104,6 +108,10 @@ ul {
 
 ul > li:not(:last-child){
     margin-bottom: 1rem;
+}
+
+img.img-border {
+    border: 0.15rem solid #ff0000;
 }
 
 /*--*/
@@ -393,7 +401,6 @@ ul > li:not(:last-child){
     width: 30rem;
     height: 20rem;
     border-radius: 1rem;
-    border: 0.15rem solid #ff0000;
 }
 
 .main-info-team h2{
