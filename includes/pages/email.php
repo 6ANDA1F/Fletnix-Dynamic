@@ -1,40 +1,38 @@
+<?php
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../includes/php/sql.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../includes/php/accounts/inlog.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../includes/php/accounts/update.php';
+
+
+// if(isset($_POST['submit'])){
+//      editEmail($_POST);
+// }
+?>
+
 <header>
     <h1>Accountgegevens wijzigen</h1>
 </header>
 <main>
     <div class="profiel-info">
-        <h3>Choose profile</h3>
-        <form action="#" class="form-block">
-            <label for="Profiel"></label>
-            <select name="Profiel" id="Profiel" required>
-                <option value="">Profiel 1</option>
-                <option value="">Profiel 2</option>
-                <option value="">Profiel 3</option>
-            </select>
-            <h3>New email</h3>
+        <form action="index.php?p=email" class="form-block" method="post">
+            <h3>Change e-mail</h3>
             <label>
-                <input type="text" name="email_current" placeholder="Current email" required>
+                <input type="text" name="currentemail" placeholder="Current e-mail" required>
             </label>
             <label>
-                <input type="text" name="email" placeholder="New email" required>
+                <input type="text" name="newemail" placeholder="New e-mail" required>
             </label>
-            <label>
-                <input type="text" name="email_cofirm" placeholder="Confirm new email" required>
-            </label>
-            <h3>Confirm Account</h3>
-            <label>
-                <input type="text" name="username" placeholder="Username" required>
-            </label>
-            <label>
-                <input type="password" name="password" placeholder="Password" required>
-            </label>
-            <label>
-                <input type="password" name="password_confirm" placeholder="Confirm Password" required>
-            </label>
-            <input type="submit" class="button" value="Finish Editing">
-        </form>
         <div class="button-wrapper">
-            <a class="button" href="profiel.php">
+                <button type="submit" class="button" value="submit" name="submit">Finish editing</button>
+        </div>
+        </form>
+       <?php if(isset($_POST['submit'])){
+         $error = editEmail($_POST);
+         echo "<h3 class='error'>$error</h3>";
+        }
+        ?>
+        <div class="button-wrapper">
+            <a class="button" href="index.php?p=profiel">
                 <strong>Go back</strong>
             </a>
         </div>

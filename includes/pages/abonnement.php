@@ -66,42 +66,4 @@ $imgPath = getImgDir();
             </ul>
         </div>
     </div>
-
-
-    <h2>Join the party!</h2>
-
-    <form action="#" class="form-block">
-        <label for="subscription"></label>
-        <select name="subscription" id="subscription" required>
-            <option value="">Subscription 1</option>
-            <option value="">Subscription 2</option>
-            <option value="">Subscription 3</option>
-        </select>
-        <label>
-            <input type="text" name="first_name" placeholder="Name" required>
-        </label>
-        <label>
-            <input type="text" name="sur_name" placeholder="Surname" required>
-        </label>
-        <label>
-            <input type="text" name="country" placeholder="Country" required>
-        </label>
-        <label>
-            <input type="date" name="birthdate" required>
-        </label>
-        <label>
-            <input type="text" name="banknumber" placeholder="Bank IBAN" required>
-        </label>
-        <label>
-            <input type="text" name="username" placeholder="Username" required>
-        </label>
-        <label>
-            <input type="password" name="password" placeholder="Password" required>
-        </label>
-        <label>
-            <input type="password" name="password_confirm" placeholder="Confirm Password" required>
-        </label>
-        <input type="submit" class="button" value="Join">
-    </form>
-
 </main>
