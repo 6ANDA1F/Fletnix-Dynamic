@@ -65,6 +65,10 @@ h2 {
     margin: 20px auto;
 }
 
+h3 {
+    letter-spacing: 5px;
+}
+
 h3, h4 {
     color: white;
 }
@@ -83,6 +87,21 @@ a > span {
 
 label {
     color: white;
+}
+
+strong.red {
+    font-size: 1.2em;
+    color: #ff0000;
+}
+
+ul {
+    list-style: square;
+    background-color: red;
+    padding: 1rem 2rem;
+}
+
+ul > li:not(:last-child){
+    margin-bottom: 1rem;
 }
 
 /*--*/
