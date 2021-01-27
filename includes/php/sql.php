@@ -26,12 +26,6 @@ function getDatabaseHandler() {
     return $dbh;
 }
 
-function showNotFoundCode() {
-    echo <<<NOTFOUND
-    <h2>404 Not Found</h2>
-NOTFOUND;
-}
-
 
 ////Test to see if the connection works
 //echo '<pre style="color: white !important;">';

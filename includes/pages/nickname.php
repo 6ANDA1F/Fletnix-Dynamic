@@ -2,6 +2,10 @@
 require_once $_SERVER['DOCUMENT_ROOT'] . '/../includes/php/sql.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/../includes/php/accounts/update.php';
 
+if (!isset($_SESSION['email'])) {
+    header('location: index.php?p=403');
+}
+
 if(isset($_POST['submit'])){
     editName($_POST);
 }

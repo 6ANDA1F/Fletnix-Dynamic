@@ -3,6 +3,10 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/../includes/php/sql.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/../includes/php/accounts/registratie.php';
 $imgPath = getImgDir();
 
+if (isset($_SESSION['email'])) {
+    header('location: index.php?p=profiel');
+}
+
 ?>
 
 <header>

@@ -3,10 +3,9 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/../includes/php/sql.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/../includes/php/accounts/inlog.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/../includes/php/accounts/update.php';
 
-
-// if(isset($_POST['submit'])){
-//      editEmail($_POST);
-// }
+if (!isset($_SESSION['email'])) {
+    header('location: index.php?p=403');
+}
 ?>
 
 <header>

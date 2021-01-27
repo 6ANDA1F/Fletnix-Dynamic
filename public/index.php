@@ -26,7 +26,9 @@ session_start();
     <?php
     include_once '../includes/html/menu.php';
 
-    include '../includes/pages/'.$page.'.php';
+    if (!@include('../includes/pages/'.$page.'.php')) {
+        header('location: index.php?p=404');
+    }
 
     ?>
 

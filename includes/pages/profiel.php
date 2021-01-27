@@ -4,6 +4,9 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/../includes/php/sql.php';
 
 $imgPath = getImgDir();
 
+if (!isset($_SESSION['email'])) {
+    header('location: index.php?p=403');
+}
 
 if(isset($_SESSION['name'])){
     $name = $_SESSION['name'];

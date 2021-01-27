@@ -3,13 +3,17 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/../includes/php/movie/data.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/../includes/php/movie/html.php';
 $imgPath = getImgDir();
 
+if (!isset($_SESSION['email'])) {
+    header('location: index.php?p=inloggen');
+}
+
 $film = null;
 if (isset($_GET['film'])) {
     $film = getSingleById($_GET['film']);
 
     $film->duration = minutesToHour($film->duration);
 } else {
-    showNotFoundCode();
+    header('location: index.php?p=404');
 }
 
 ?>
