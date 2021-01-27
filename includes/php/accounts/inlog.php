@@ -6,7 +6,7 @@ function checkLogin($post){
     $uname = $post['username'];
     $password = $post['password'];
     $dbh = getDatabaseHandler();
-    $query = $dbh->prepare("SELECT password, user_name FROM Customer WHERE user_name = :uname");
+    $query = $dbh->prepare("SELECT password, user_name, customer_mail_address FROM Customer WHERE user_name = :uname");
     $query->bindParam(':uname', $uname);
     $query->execute();
 
@@ -14,6 +14,7 @@ function checkLogin($post){
         if(password_verify($password, $result['password'])){
             session_regenerate_id();
             $_SESSION['name'] = $result['user_name'];
+            $_SESSION['email'] = $result['customer_mail_address'];
             header('Location: index.php?p=profiel');
         } else{
             return "Foute e-mail/wachtwoord. Probeer opnieuw.";

@@ -30,7 +30,8 @@ function registerUser($post)
     if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $query->execute();
         session_regenerate_id();
-        $_SESSION['name'] = $firstname;
+        $_SESSION['name'] = $username;
+        $_SESSION['email'] = $email;
         header("Location: index.php?p=profiel");
     } else {
         return "Foute e-mail. Probeer opnieuw.";
