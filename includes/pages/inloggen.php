@@ -19,7 +19,7 @@ $imgPath = getImgDir();
       <img src="<?= $imgPath ?>avatar.png" class="profiel-logo" alt="avatar">
          <div class="Login">
             <label>
-                <input type="text" class="loginUsername" placeholder="Enter E-mail" name="email" required>
+                <input type="text" class="loginUsername" placeholder="Enter Username" name="username" required>
             </label>
             <label>
                 <input type="password" class="loginPassword" placeholder="Enter Password" name="password" required>

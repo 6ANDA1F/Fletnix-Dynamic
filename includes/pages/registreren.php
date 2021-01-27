@@ -22,6 +22,9 @@ $imgPath = getImgDir();
             <input type="text" name="email" placeholder="E-mail" required>
         </label>
         <label>
+            <input type="text" name="username" placeholder="Username" required>
+        </label>
+        <label>
             <input type="text" name="first_name" placeholder="Name" required>
         </label>
         <label>

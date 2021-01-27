@@ -17,9 +17,6 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/../includes/php/accounts/update.php';
         <form action="index.php?p=email" class="form-block" method="post">
             <h3>Change e-mail</h3>
             <label>
-                <input type="text" name="currentemail" placeholder="Current e-mail" required>
-            </label>
-            <label>
                 <input type="text" name="newemail" placeholder="New e-mail" required>
             </label>
         <div class="button-wrapper">

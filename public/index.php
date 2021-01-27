@@ -5,6 +5,8 @@ if(isset($_GET['p'])) {
     $page = 'home';
 }
 
+session_start();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

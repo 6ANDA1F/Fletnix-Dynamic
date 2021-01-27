@@ -24,9 +24,6 @@ if(isset($_POST['submit'])){
             </select> -->
             <h3>New nickname</h3>
             <label>
-                <input type="text" name="email" placeholder="Confirm E-mail" required>
-            </label>
-            <label>
                 <input type="text" name="newname" placeholder="New Nickname" required>
             </label>
             <!-- <h3>Confirm Account</h3> -->
