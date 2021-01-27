@@ -46,6 +46,9 @@ if (isset($_SESSION['email'])) {
         <label>
             <input type="password" name="password" placeholder="Password" required>
         </label>
+        <label>
+            <input type="password" name="passwordconfirm" placeholder="Confirm Password" required>
+        </label>
         <input type="submit" name="submit" class="button" value="Join">
         <?php if(isset($_POST['submit'])){
          $error = registerUser($_POST);

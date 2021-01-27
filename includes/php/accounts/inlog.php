@@ -1,8 +1,8 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/../includes/php/sql.php';
 
-
-function checkLogin($post){
+function checkLogin($post)
+{
     $uname = $post['username'];
     $password = $post['password'];
     $dbh = getDatabaseHandler();
@@ -10,16 +10,16 @@ function checkLogin($post){
     $query->bindParam(':uname', $uname);
     $query->execute();
 
-    if ($result = $query->fetch(PDO::FETCH_ASSOC)){
-        if(password_verify($password, $result['password'])){
+    if ($result = $query->fetch(PDO::FETCH_ASSOC)) {
+        if (password_verify($password, $result['password'])) {
             session_regenerate_id();
             $_SESSION['name'] = $result['user_name'];
             $_SESSION['email'] = $result['customer_mail_address'];
             header('Location: index.php?p=profiel');
-        } else{
+        } else {
             return "Foute e-mail/wachtwoord. Probeer opnieuw.";
         }
-    }else {
+    } else {
         return "Foute e-mail/wachtwoord. Probeer opnieuw.";
     }
     exit();

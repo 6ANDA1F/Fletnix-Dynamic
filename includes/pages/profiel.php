@@ -25,11 +25,11 @@ if(isset($_SESSION['name'])){
         </h2>
         <img src="<?= $imgPath ?>avatar.png" class="profiel-logo" alt="avatar">
         <h2>
-            Profielnaam wijzigen
+            Username wijzigen
         </h2>
         <div class="button-wrapper">
-            <a class="button" href="index.php?p=nickname">
-                <strong>Edit name</strong>
+            <a class="button" href="index.php?p=username">
+                <strong>Edit username</strong>
             </a>
         </div>
         <h2>
@@ -39,6 +39,15 @@ if(isset($_SESSION['name'])){
         <div class="button-wrapper">
             <a class="button" href="index.php?p=email">
                 <strong>Edit email</strong>
+            </a>
+        </div>
+        <h2>
+            Password wijzigen
+        </h2>
+        <img src="<?= $imgPath ?>lock.png" class="email-logo" alt="Lock">
+        <div class="button-wrapper">
+            <a class="button" href="index.php?p=password">
+                <strong>Edit password</strong>
             </a>
         </div>
         <div class="button-wrapper">
