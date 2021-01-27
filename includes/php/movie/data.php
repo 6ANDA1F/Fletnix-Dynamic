@@ -13,7 +13,7 @@ const TABLE_MOVIE_DIRECTOR = "Movie_Director MD";
 const TABLE_PERSON = "Person P";
 const TABLE_MOVIE_GENRE = "Movie_Genre MG";
 
-function getAll($limit = 20)
+function getAll($limit = 20, $page)
 {
     $sql = "SELECT M.movie_id, title, cover_image FROM " . TABLE_MOVIES;
 
@@ -51,8 +51,8 @@ function getAll($limit = 20)
         $sql .= " MG.genre_name = :genre";
     }
 
-    $sql .= " ORDER BY M.movie_id
-            OFFSET 0 ROWS FETCH NEXT :limit ROWS ONLY";
+    $sql .= " ORDER BY M.movie_id";
+    $sql .= " OFFSET :offset ROWS FETCH NEXT :limit ROWS ONLY";
 
     $handler = getDatabaseHandler();
 
@@ -74,11 +74,15 @@ function getAll($limit = 20)
         $query->bindParam(':genre', $_GET['genre']);
     }
 
+    $offset = 0;
+    if ($page > 0) {
+        $offset = $page * $limit;
+    }
+
+    $query->bindParam(':offset', $offset, PDO::PARAM_INT);
     $query->bindParam(':limit', $limit, PDO::PARAM_INT);
 
-
     $query->execute();
-
 
     return $query->fetchAll(PDO::FETCH_OBJ);
 }

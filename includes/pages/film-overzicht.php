@@ -3,7 +3,14 @@
 require_once $_SERVER['DOCUMENT_ROOT'] . '/../includes/php/movie/data.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/../includes/php/movie/html.php';
 $imgPath = getImgDir();
-$movies = getAll(30);
+
+if (isset($_GET['pagination_page']) && is_numeric($_GET['pagination_page'])) {
+    $pagination_page = $_GET['pagination_page'];
+} else {
+    $pagination_page = 0;
+}
+
+$movies = getAll(30, $pagination_page);
 ?>
 
 <header>
@@ -39,5 +46,9 @@ $movies = getAll(30);
             filmToHtml($movie);
         }
         ?>
+    </div>
+
+    <div class="pagination">
+        <?php paginationHtml($pagination_page); ?>
     </div>
 </main>

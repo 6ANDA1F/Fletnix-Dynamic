@@ -114,6 +114,16 @@ img.img-border {
     border: 0.15rem solid #ff0000;
 }
 
+.pagination {
+    color: white;
+    font-size: 2rem;
+}
+
+.pagination a {
+    color: white;
+
+}
+
 /*--*/
 
 /*Menu*/
